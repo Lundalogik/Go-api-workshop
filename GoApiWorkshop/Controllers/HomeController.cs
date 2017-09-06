@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using GoApiWorkshop.Models;
+using System.Net.Http;
+using Newtonsoft.Json;
+using System.Text;
 
 namespace GoApiWorkshop.Controllers
 {
@@ -15,16 +14,17 @@ namespace GoApiWorkshop.Controllers
             return View();
         }
 
-        public IActionResult About()
+        public IActionResult Contact()
         {
-            ViewData["Message"] = "Your application description page.";
+            ViewData["Title"] = "Contact us!";
 
             return View();
         }
 
-        public IActionResult Contact()
+        [HttpPost]
+        public IActionResult Contact(ContactModel model)
         {
-            ViewData["Message"] = "Your contact page.";
+            ViewData["Title"] = "Contact us!";
 
             return View();
         }

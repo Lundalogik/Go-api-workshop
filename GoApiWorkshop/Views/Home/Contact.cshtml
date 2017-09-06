@@ -1,17 +1,39 @@
-﻿@{
-    ViewData["Title"] = "Contact";
-}
-<h2>@ViewData["Title"]</h2>
-<h3>@ViewData["Message"]</h3>
-
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
-
-<address>
-    <strong>Support:</strong> <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+﻿@model GoApiWorkshop.Models.ContactModel
+<div class="container col-lg-6 col-md-6 col-lg-offset-3 col-md-offset-3">
+    <form method="post">
+        <fieldset>
+            <legend>@ViewBag.Title</legend>
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        <i class="glyphicon glyphicon-home"></i>
+                    </span>
+                    <input asp-for="CompanyName" name="companyname" placeholder="Company name" class="form-control" type="text">
+                </div>
+                <span asp-validation-for="CompanyName" class="text-muted"></span>
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        <i class="glyphicon glyphicon-pencil"></i>
+                    </span>
+                    <textarea rows="5" cols="15" asp-for="Message" class="form-control" name="message" placeholder="What do you need help with?"></textarea>
+                </div>
+                <span asp-validation-for="Message" class="text-muted"></span>
+            </div>
+            @if (ViewBag.Message == null)
+            {
+                <div>
+                    <button type="submit" class="btn btn-primary">Send <span class="glyphicon glyphicon-send"></span></button>
+                </div>
+            }
+            @if (ViewBag.Message != null)
+            {
+                <div class="alert alert-success" role="alert" id="success_message">
+                    <i class="glyphicon glyphicon-thumbs-up"></i>
+                    @ViewBag.Message
+                </div>
+            }
+        </fieldset>
+    </form>
+</div>
