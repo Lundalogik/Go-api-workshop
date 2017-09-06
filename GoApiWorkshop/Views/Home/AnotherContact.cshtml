@@ -1,0 +1,49 @@
+﻿@model GoApiWorkshop.Models.ContactModel
+<div class="container col-lg-6 col-md-6 col-lg-offset-3 col-md-offset-3">
+    <fieldset>
+        <legend>@ViewBag.Title</legend>
+        <div class="form-group">
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <i class="glyphicon glyphicon-home"></i>
+                </span>
+                <input asp-for="CompanyName" name="companyname" placeholder="Company name" class="form-control" type="text">
+            </div>
+            <span asp-validation-for="CompanyName" class="text-muted"></span>
+        </div>
+
+        <div class="form-group">
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <i class="glyphicon glyphicon-user"></i>
+                </span>
+                <input asp-for="PersonFirstName" name="personfirstname" placeholder="First name" class="form-control" type="text">
+            </div>
+            <span asp-validation-for="PersonFirstName" class="text-muted"></span>
+        </div>
+
+        <div class="form-group">
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <i class="glyphicon glyphicon-user"></i>
+                </span>
+                <input asp-for="PersonLastName" name="personlastname" placeholder="Last name" class="form-control" type="text">
+            </div>
+            <span asp-validation-for="PersonLastName" class="text-muted"></span>
+        </div>
+
+        <div class="form-group">
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <i class="glyphicon glyphicon-pencil"></i>
+                </span>
+                <textarea rows="5" cols="15" asp-for="Message" class="form-control" name="message" placeholder="What do you need help with?"></textarea>
+            </div>
+            <span asp-validation-for="Message" class="text-muted"></span>
+        </div>
+        <div>
+            <button type="button" onclick="contact()" class="btn btn-primary">Send <span class="glyphicon glyphicon-send"></span></button>
+        </div>
+        
+    </fieldset>
+</div>
